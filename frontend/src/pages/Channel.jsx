@@ -147,10 +147,25 @@ const Channel = () => {
           />
           <input
             type="text"
-            placeholder="Thumbnail URL"
+            placeholder="Thumbnail URL (or use file picker below)"
             value={videoForm.thumbnail}
             onChange={(e) => setVideoForm({ ...videoForm, thumbnail: e.target.value })}
           />
+          <div style={{marginBottom: '15px'}}>
+            <label>Or pick image: </label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => {
+                const file = e.target.files[0];
+                if (file) {
+                  const reader = new FileReader();
+                  reader.onloadend = () => setVideoForm({ ...videoForm, thumbnail: reader.result });
+                  reader.readAsDataURL(file);
+                }
+              }}
+            />
+          </div>
           <select
             value={videoForm.category}
             onChange={(e) => setVideoForm({ ...videoForm, category: e.target.value })}

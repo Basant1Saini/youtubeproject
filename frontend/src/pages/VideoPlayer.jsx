@@ -10,6 +10,7 @@ const VideoPlayer = () => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [editingId, setEditingId] = useState(null);
+  const [editText, setEditText] = useState('');
 
   useEffect(() => {
     API.get(`/videos/${id}`).then(res => setVideo(res.data));
@@ -92,13 +93,20 @@ const VideoPlayer = () => {
             <div key={c._id} className="comment">
               <strong>{c.user?.username}</strong>
               {editingId === c._id ? (
-                <input defaultValue={c.text} onBlur={(e) => editComment(c._id, e.target.value)} />
+                <div className="edit-comment-form">
+                  <input 
+                    value={editText} 
+                    onChange={(e) => setEditText(e.target.value)}
+                  />
+                  <button onClick={() => editComment(c._id, editText)}>Save</button>
+                  <button onClick={() => setEditingId(null)}>Cancel</button>
+                </div>
               ) : (
                 <p>{c.text}</p>
               )}
-              {user?._id === c.user?._id && (
+              {user?._id === c.user?._id && editingId !== c._id && (
                 <div className="comment-actions">
-                  <button onClick={() => setEditingId(c._id)}>Edit</button>
+                  <button onClick={() => { setEditingId(c._id); setEditText(c.text); }}>Edit</button>
                   <button onClick={() => deleteComment(c._id)}>Delete</button>
                 </div>
               )}

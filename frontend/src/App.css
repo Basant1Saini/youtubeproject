@@ -63,6 +63,11 @@ body { font-family: 'Segoe UI', Arial, sans-serif; }
 .comment strong { display: block; margin-bottom: 5px; }
 .comment-actions { margin-top: 10px; display: flex; gap: 10px; }
 .comment-actions button { padding: 5px 10px; border: none; background: none; color: #065fd4; cursor: pointer; }
+.edit-comment-form { display: flex; gap: 10px; margin-top: 10px; }
+.edit-comment-form input { flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+.edit-comment-form button { padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; }
+.edit-comment-form button:first-of-type { background: #065fd4; color: white; }
+.edit-comment-form button:last-of-type { background: #ccc; color: #333; }
 
 /* Auth Pages */
 .auth-container { display: flex; justify-content: center; align-items: center; min-height: calc(100vh - 60px); }

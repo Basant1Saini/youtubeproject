@@ -2,6 +2,10 @@
 
 A YouTube clone built using MongoDB, Express, React, and Node.js.
 
+**GitHub:** https://github.com/Basant1Saini/youtubeproject
+
+**Demo Video:** https://drive.google.com/file/d/1K5V_S-6FdE4mfeMimPLEo51cHTCFvByW/view?usp=drivesdk
+
 ## Features
 
 - Home page with video grid, sidebar, search bar, and category filters
@@ -79,4 +83,7 @@ Open http://localhost:5173
 ## Author
 
 Basant Saini
+
+**GitHub:** https://github.com/Basant1Saini/youtubeproject  
+**Demo Video:** https://drive.google.com/file/d/1K5V_S-6FdE4mfeMimPLEo51cHTCFvByW/view?usp=drivesdk
 

@@ -51,3 +51,4 @@ const Home = ({ searchTerm }) => {
 };
 
 export default Home;
+

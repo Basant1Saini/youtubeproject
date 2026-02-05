@@ -53,7 +53,11 @@ const VideoPlayer = () => {
   return (
     <div className="video-player-page">
       <div className="video-container">
-        <iframe src={video.videoUrl} title={video.title} allowFullScreen></iframe>
+        {video.videoUrl.includes('youtube') || video.videoUrl.includes('embed') ? (
+          <iframe src={video.videoUrl} title={video.title} allowFullScreen></iframe>
+        ) : (
+          <video src={video.videoUrl} controls style={{width: '100%', height: '100%', position: 'absolute', top: 0, left: 0}}></video>
+        )}
       </div>
       <div className="video-details">
         <h1>{video.title}</h1>

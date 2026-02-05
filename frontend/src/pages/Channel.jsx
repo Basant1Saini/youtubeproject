@@ -140,11 +140,25 @@ const Channel = () => {
           />
           <input
             type="text"
-            placeholder="Video URL"
+            placeholder="Video URL (YouTube embed or use file picker)"
             value={videoForm.videoUrl}
             onChange={(e) => setVideoForm({ ...videoForm, videoUrl: e.target.value })}
             required
           />
+          <div style={{marginBottom: '15px'}}>
+            <label>Or pick video: </label>
+            <input
+              type="file"
+              accept="video/*"
+              onChange={(e) => {
+                const file = e.target.files[0];
+                if (file) {
+                  const url = URL.createObjectURL(file);
+                  setVideoForm({ ...videoForm, videoUrl: url });
+                }
+              }}
+            />
+          </div>
           <input
             type="text"
             placeholder="Thumbnail URL (or use file picker below)"
